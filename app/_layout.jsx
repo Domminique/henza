@@ -33,7 +33,7 @@ const MainLayout = () => {
   if(session){
    setAuth(session?.user)
    updateUserData(session?.user, session?.user?.email)
-    router.replace('/home')
+    router.replace('(tabs)')
   }else{
     setAuth(null)
     router.replace('/welcome')

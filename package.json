@@ -16,6 +16,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@expo/html-elements": "^0.10.1",
     "@expo/vector-icons": "^14.0.2",
     "@react-native-async-storage/async-storage": "1.23.1",
     "@react-navigation/native": "^6.0.2",
@@ -37,11 +38,13 @@
     "expo-status-bar": "~1.12.1",
     "expo-system-ui": "~3.0.7",
     "expo-web-browser": "~13.0.3",
+    "link": "^2.1.1",
     "moment": "^2.30.1",
     "patch-package": "^8.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.74.5",
+    "react-native": "^0.74.5",
+    "react-native-dialogflow": "^3.2.2",
     "react-native-gesture-handler": "~2.16.1",
     "react-native-pell-rich-editor": "^1.9.0",
     "react-native-reanimated": "~3.10.1",
@@ -50,6 +53,7 @@
     "react-native-screens": "3.31.1",
     "react-native-svg": "^15.6.0",
     "react-native-url-polyfill": "^2.0.0",
+    "react-native-voice": "^0.3.0",
     "react-native-web": "~0.19.10",
     "react-native-webview": "^13.8.6"
   },

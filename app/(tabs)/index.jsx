@@ -120,7 +120,7 @@ const HOME = () => {
     
     <View style={{gap:8, padding:10}}>
     <FlatList 
-      horizontal={true}
+      horizontal={false}
       data={services}
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.listStyle}
