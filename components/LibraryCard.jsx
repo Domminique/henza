@@ -50,9 +50,9 @@ const LibraryCard = ({
     }
 
 
-const openServiceDetails = ()=>{
+const openLibraryDetails = ()=>{
     if(!showMoreIcon) return null;
-    router.push({pathname:'postDetails', params: {postId: item?.id}})
+    router.push({pathname:'libraryDetails', params: item})
 
 }
 
@@ -85,7 +85,7 @@ const onShare = async() =>{
      {
 
         showMoreIcon && ( 
-            <TouchableOpacity onPress={openServiceDetails}>
+            <TouchableOpacity onPress={openLibraryDetails}>
 
             <Icon name="threeDotsHorizontal" size={hp(3.4)} strokeWidth={3} color={theme.colors.text} />
          </TouchableOpacity>
@@ -116,7 +116,7 @@ const onShare = async() =>{
         {/* Post image */}
 
         {
-            // item?.file && item?.file?.includes('postImages') && (
+            item?.image&& (
                 <Image
                 source={item?.image}
             
@@ -124,17 +124,17 @@ const onShare = async() =>{
                 contentFit='cover'
                 />
 
-            // )
+            )
         }
 
          {/* Post Video */}
 
          {
 
-            item?.file && item?.file?.includes('postVideos') && (
+            item?.video && (
           <Video
-             style={[styles.postMedia, {height:hp(30)}]}
-             source={getSupabaseFileUrl(item?.file)}
+             style={[styles.video, {height:hp(30)}]}
+             source={item?.video}
              useNativeControls
              isLopping
     
@@ -145,7 +145,7 @@ const onShare = async() =>{
     {/* {Book, wishlist, share} */}
     <View style={styles.footer}>
         <View style={styles.footerButton}>
-            <TouchableOpacity onPress={openServiceDetails}>
+            <TouchableOpacity onPress={openLibraryDetails }>
                 <Icon name="call" colors={24} fill={liked? theme.colors.rose:'transparent'}
                  color={liked? theme.colors.rose: theme.colors.textLight} />
             </TouchableOpacity>
@@ -161,7 +161,7 @@ const onShare = async() =>{
 
         </View>
         <View style={styles.footerButton} >
-            <TouchableOpacity onPress={openServiceDetails}>
+            <TouchableOpacity onPress={openLibraryDetails }>
                 <Icon name="appointment" colors={24}   color={ theme.colors.textLight} />
             </TouchableOpacity>
 
@@ -176,7 +176,7 @@ const onShare = async() =>{
 
         </View>
         <View style={styles.footerButton}>
-            <TouchableOpacity onPress={openServiceDetails}>
+            <TouchableOpacity onPress={openLibraryDetails }>
                 <Icon name="share" colors={24} color={theme.colors.textLight} />
             </TouchableOpacity>
 
@@ -192,7 +192,7 @@ const onShare = async() =>{
 
         </View>
         <View style={styles.footerButton}>
-            <TouchableOpacity onPress={openServiceDetails}>
+            <TouchableOpacity onPress={openLibraryDetails }>
                 <Icon name="comment" colors={24} color={theme.colors.textLight} />
             </TouchableOpacity>
 
@@ -277,9 +277,18 @@ actions: {
 count: {
     color: theme.colors.text,
     fontSize: hp(1.8)
-}
+},
+video: {
+    alignSelf: 'center',
+    width: 320,
+    height: 200,
+  },
 
 
 
 
 })
+
+
+
+

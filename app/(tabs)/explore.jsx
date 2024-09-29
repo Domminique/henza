@@ -16,7 +16,13 @@ import Loading from '../../components/Loading'
 import getUserData from  '../../services/userService'
 import Dashboard from '../../components/Dashboard'
 import LibraryCard from '../../components/LibraryCard'
-import DefaultImage from '../../assets/images/medical1.png';
+import DefaultImage from '../../assets/images/meditation.jpg';
+import DefaultImage1 from '../../assets/images/image2.jpg';
+import DefaultImage2 from '../../assets/images/image3.jpg';
+import DefaultImage3 from '../../assets/images/image3.jpg';
+import  DefaultVideo from '../../assets/images/video2.mp4';
+import Input from '../../components/Input'
+import { Video } from 'expo-av'
 
 // const DEFAULT_IMAGE = Image.resolveAssetSource(DefaultImage).uri;
 
@@ -25,24 +31,24 @@ var limit = 0;
 
 const services = [
   {
-    name: 'Article',
+    name: 'Meditation',
     id: 1, 
     tag: 'Create Smart Lists — lists that gather your to-dos based on tags, dates, times, locations, and flags.stores all medical information from allergies and medications to previous surgeries and specialist contact details.',
     image:Image.resolveAssetSource(DefaultImage).uri
 
   }, 
   {
-    name: 'Video',
+    name: 'Inspirational messages',
     id:3,
     body:'Easily lighten your load by assigning certain tasks to friends and family. If, for example, you have a work meeting the same day as your father’s radiotherapy treatment, you can assign transportation to your sibling. share important medical appointments and test results.',
-    image:Image.resolveAssetSource(DefaultImage).uri
+    video:DefaultVideo,
     
   }, 
   {
     name: 'Exercise',
     id:2,
     body:'find support groups for all types of cancers , find clinical trials and allows users to input medical records .Chat directly with renowned oncologists and clinical researchers, search for advocacy events based on location and cancer type, join support groups for patients and caregivers based on cancer type.',
-    image:Image.resolveAssetSource(DefaultImage).uri
+    image:Image.resolveAssetSource(DefaultImage1).uri
     
   }, 
 
@@ -51,7 +57,7 @@ const services = [
     id:2,
     body:'10 music tracks,Four guided meditations 36 pieces of art More than 60 inspirational messages',
     image:'../assets/images/icon.png',
-    image:Image.resolveAssetSource(DefaultImage).uri
+    image:Image.resolveAssetSource(DefaultImage2).uri
     
   }, 
   
@@ -128,7 +134,13 @@ const Explore = () => {
 
     
 <View >
-    <Text style={styles.nearby}>Videos </Text>
+<Input 
+      
+      icon={<Icon name="search" size={26} strokeWidth={1.6}/>}
+      placeholder="Find  resources based on your needs"
+      onChangeText={value=>emailRef.current = value}
+      />
+     
     <FlatList 
       data={services}
       showsHorizontalScrollIndicator={false}
