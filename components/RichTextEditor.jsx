@@ -48,7 +48,7 @@ const RichTextEditor = ({
      ref={editorRef}
      containerStyle={styles.rich}
      editorStyle={styles.contentStyle}
-     placeholder={"What do you do and how do you do it?"}
+     placeholder={"Journaling area for tracking appointments, medication and keeping notes"}
      onChange={onChange}
 
      />

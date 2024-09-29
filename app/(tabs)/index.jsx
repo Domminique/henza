@@ -14,6 +14,7 @@ import PostCard from '../../components/PostCard'
 import ServiceCard from '../../components/ServiceCard'
 import Loading from '../../components/Loading'
 import getUserData from  '../../services/userService'
+import Dashboard from '../../components/Dashboard'
 
 
 var limit = 0;
@@ -26,13 +27,13 @@ const services = [
 
   }, 
   {
-    name: 'Collaborate',
+    name: 'Connect',
     id:3,
     tag:'Easily lighten your load by assigning certain tasks to friends and family. If, for example, you have a work meeting the same day as your father’s radiotherapy treatment, you can assign transportation to your sibling. share important medical appointments and test results.',
     
   }, 
   {
-    name: 'Connect',
+    name: 'Mental Health Professional',
     id:2,
     tag:'find support groups for all types of cancers , find clinical trials and allows users to input medical records .Chat directly with renowned oncologists and clinical researchers, search for advocacy events based on location and cancer type, join support groups for patients and caregivers based on cancer type.'
     
@@ -95,7 +96,7 @@ const HOME = () => {
     <ScreenWrapper bg='white'>
    <View style={styles.container}>
     {/* headers */}
-    <View style={styles.header}>
+    {/* <View style={styles.header}>
       <Text style={styles.title}>Henza</Text>
       <View style={styles.icons}>
       <Pressable onPress={()=>router.push('chat')}>
@@ -115,7 +116,8 @@ const HOME = () => {
         style={{borderWith:2}}/>
         </Pressable>
       </View>
-    </View>
+    </View> */}
+    <Dashboard />
 
     
     <View style={{gap:8, padding:10}}>

@@ -85,7 +85,7 @@ const NewPost = () => {
 
   const onSumbit = async() =>{
     if(!bodyRef.current || !file ){
-      Alert.alert('Add Service', "Please choose an image or add service body")
+      Alert.alert('Add Service', "Please add pictures of medications or add service body")
       return;
     }
 
@@ -120,7 +120,7 @@ const NewPost = () => {
         editorRef.current?.setContentHTML('')
         router.back()
       } else{
-        Alert.alert('Add service', res.msg)
+        Alert.alert('Add Reminder', res.msg)
       }
 
 
@@ -132,7 +132,7 @@ const NewPost = () => {
   return (
     <ScreenWrapper bg="white">
      <View style={styles.container}>
-     <Header title='Create service'/>
+     <Header title='Create a reminder'/>
      <ScrollView contentContainerStyle={{gap:20}} >
       {/* avatar */}
 
@@ -149,7 +149,7 @@ const NewPost = () => {
             }
           </Text>
           <Text style={styles.publicText}>
-            Health Service Provider
+            Champion
 
           </Text>
 
@@ -213,7 +213,7 @@ const NewPost = () => {
      </ScrollView>
      <Button 
      buttonStyle={{height:hp(6.2)}}
-     title='Add service'
+     title='Add '
      loading={loading}
      hasShadow={false}
      onPress={onSumbit}
