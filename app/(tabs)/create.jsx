@@ -15,21 +15,35 @@ import * as ImagePicker from 'expo-image-picker';
 import { getSupabaseFileUrl } from '../../services/imageService'
 import { Video } from 'expo-av'
 import { createOrUpdateService } from '../../services/postService'
+import { Picker } from '@react-native-picker/picker';
 
 
 
 const NewPost = () => {
 
   const { user} = useAuth();
-  const bodyRef = useRef("")
+  const bodyRef = useRef(bodyRef)
   const editorRef = useRef(null)
   const router = useRouter()
   const [ loading, setLoading] = useState(false)
   const [file, setFile] = useState(file)
   const [verified, setVerified] = useState(false)
+  const [selectedMood, setSelectedMood] = useState(selectedMood);
 
   // console.log(bodyRef)
 
+  const moodOptions = [
+    'Happy',
+    'Sad',
+    'Angry',
+    'Calm',
+    'Stressed',
+    // ... other mood options
+  ];
+
+  const handleMoodChange = (itemValue) => {
+    setSelectedMood(itemValue);
+  };
 
   const onPick = async(isImage) =>{
     let mediaConfig = {
@@ -85,9 +99,21 @@ const NewPost = () => {
 
   const onSumbit = async() =>{
     if(!bodyRef.current || !file ){
-      Alert.alert('Add Service', "Please choose an image or add service body")
+      Alert.alert('Personalized Support Resources', "Our AI agent will curate relevant resources based on your needs; 10 music tracks, Four guided meditations 36 pieces of art More than 60 inspirational messages")
+
+      setLoading(true);
+
+      setTimeout(() => {
+        router.push('explore')
+        
+      }, 3000);
+
+      setLoading(false);
       return;
     }
+   
+
+    
 
     let data = {
       file, 
@@ -120,7 +146,7 @@ const NewPost = () => {
         editorRef.current?.setContentHTML('')
         router.back()
       } else{
-        Alert.alert('Add service', res.msg)
+        Alert.alert('Update Mood', res.msg)
       }
 
 
@@ -132,7 +158,7 @@ const NewPost = () => {
   return (
     <ScreenWrapper bg="white">
      <View style={styles.container}>
-     <Header title='Create service'/>
+     <Header title='My Mood'/>
      <ScrollView contentContainerStyle={{gap:20}} >
       {/* avatar */}
 
@@ -149,13 +175,22 @@ const NewPost = () => {
             }
           </Text>
           <Text style={styles.publicText}>
-            Health Service Provider
+            Champion
 
           </Text>
 
         </View>
 
       </View>
+      <Picker
+      selectedValue={selectedMood}
+      onValueChange={handleMoodChange}
+      itemStyle={{ height: 40, justifyContent: 'flex-start' }}
+    >
+      {moodOptions.map((mood) => (
+        <Picker.Item label={mood} value={mood} key={mood} />
+      ))}
+    </Picker>
 
       <View style={styles.textEditor}>
 
@@ -197,7 +232,7 @@ const NewPost = () => {
         )
       }
 
-      <View style={styles.media}>
+      {/* <View style={styles.media}>
         <Text style={styles.addImageText}>Add to your services</Text>
         <View style={styles.mediaIcons}>
            <TouchableOpacity onPress={()=>onPick(true)} >
@@ -209,15 +244,16 @@ const NewPost = () => {
 
         </View>
 
-      </View>
-     </ScrollView>
-     <Button 
+      </View> */}
+      <Button 
      buttonStyle={{height:hp(6.2)}}
-     title='Add service'
+     title='Update Mood'
      loading={loading}
      hasShadow={false}
      onPress={onSumbit}
      /> 
+     </ScrollView>
+     
     </View>
     </ScreenWrapper>
   )
