@@ -23,26 +23,30 @@ const services = [
   {
     name: 'Medication Reminder',
     id: 1, 
-    tag: 'Create Smart Lists — lists that gather your to-dos based on tags, dates, times, locations, and flags.stores all medical information from allergies and medications to previous surgeries and specialist contact details.'
+    tag: 'Create Smart Lists — lists that gather your to-dos based on tags, dates, times, locations, and flags.stores all medical information from allergies and medications to previous surgeries and specialist contact details.',
+    title:'Create Smart Lists '
 
   }, 
   {
     name: 'Connect',
     id:3,
     tag:'Easily lighten your load by assigning certain tasks to friends and family. If, for example, you have a work meeting the same day as your father’s radiotherapy treatment, you can assign transportation to your sibling. share important medical appointments and test results.',
+    title:'Find support groups'
     
   }, 
   {
     name: 'Mental Health Professional',
     id:2,
-    tag:'find support groups for all types of cancers , find clinical trials and allows users to input medical records .Chat directly with renowned oncologists and clinical researchers, search for advocacy events based on location and cancer type, join support groups for patients and caregivers based on cancer type.'
+    tag:'find support groups for all types of cancers , find clinical trials and allows users to input medical records .Chat directly with renowned oncologists and clinical researchers, search for advocacy events based on location and cancer type, join support groups for patients and caregivers based on cancer type.',
+    title:'Chat directly with renowned oncologists '
     
   }, 
 
   {
     name: 'Healing AI',
     id:2,
-    tag:'10 music tracks,Four guided meditations 36 pieces of art More than 60 inspirational messages'
+    tag:'10 music tracks,Four guided meditations 36 pieces of art More than 60 inspirational messages',
+    title:' Music, guided meditations and art  '
     
   }, 
   

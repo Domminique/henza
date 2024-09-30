@@ -15,6 +15,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { getSupabaseFileUrl } from '../../services/imageService'
 import { Video } from 'expo-av'
 import { createOrUpdateService } from '../../services/postService'
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 
 
@@ -102,7 +103,7 @@ const NewPost = () => {
       setLoading(true);
 
       if(!verified){
-        Alert.alert('Verification', "You are not verified as a  health care service provider to list your service(s)on Henza.Please get verified to continue")
+        Alert.alert('Reminder', "Stay on track with reminders to take a medication or log blood sugar/blood pressure, Automate pharmacy refills")
         router.back()
         return;
 
@@ -128,6 +129,31 @@ const NewPost = () => {
 
 
   }
+
+
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  const[pickMode, setPickMode] = useState('date')
+
+
+  const showTimePicker =() => {
+    setPickMode('time')
+    setDatePickerVisibility(true);
+  } 
+
+  const showDatePicker = () => {
+    setPickMode('date')
+    setDatePickerVisibility(true);
+  };
+
+  const hideDatePicker = () => {
+    setDatePickerVisibility(false);
+  };
+
+  const handleConfirm = (date) => {
+    console.warn("A date has been picked: ", date);
+    hideDatePicker();
+  };
+
   
   return (
     <ScreenWrapper bg="white">
@@ -156,6 +182,15 @@ const NewPost = () => {
         </View>
 
       </View>
+      <View>
+      {/* <Button title="Show Date Picker" onPress={showDatePicker} /> */}
+      <DateTimePickerModal
+        isVisible={isDatePickerVisible}
+        mode={pickMode}
+        onConfirm={handleConfirm}
+        onCancel={hideDatePicker}
+      />
+    </View>
 
       <View style={styles.textEditor}>
 
@@ -196,15 +231,27 @@ const NewPost = () => {
           </View>
         )
       }
-
-      <View style={styles.media}>
-        <Text style={styles.addImageText}>Add to your services</Text>
+ <View style={styles.media}>
+        <Text style={styles.addImageText}>Add to your reminder</Text>
         <View style={styles.mediaIcons}>
            <TouchableOpacity onPress={()=>onPick(true)} >
             <Icon name='image' size={30} color={theme.colors.dark} />
            </TouchableOpacity>
            <TouchableOpacity onPress={()=>onPick(false)} >
             <Icon name='video' size={20} color={theme.colors.dark} />
+           </TouchableOpacity>
+
+        </View>
+
+      </View>
+      <View style={styles.media}>
+        <Text style={styles.addImageText}>Add time and date</Text>
+        <View style={styles.mediaIcons}>
+           <TouchableOpacity onPress={()=>showTimePicker()} >
+            <Icon name='notification' size={30} color={theme.colors.dark} />
+           </TouchableOpacity>
+           <TouchableOpacity onPress={()=>showDatePicker()} >
+            <Icon name='notification' size={20} color={theme.colors.dark} />
            </TouchableOpacity>
 
         </View>

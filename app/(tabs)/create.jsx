@@ -131,7 +131,6 @@ const NewPost = () => {
         Alert.alert('Verification', "You are not verified as a  health care service provider to list your service(s)on Henza.Please get verified to continue")
         router.back()
         return;
-
         
       }
       

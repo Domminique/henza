@@ -49,7 +49,7 @@ const openServiceDetails = ()=>{
         <View style={{gap:4}}>
             <Text style={styles.username}>{item?.name}</Text>
             {/* <Text style={styles.postTime}>{createdAt}</Text> */}
-            <Text style={styles.postTime}> 5km around you</Text>
+            <Text style={styles.postTime}>{item?.title}</Text>
         </View>
      </View>
 

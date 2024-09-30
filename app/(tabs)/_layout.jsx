@@ -16,6 +16,13 @@ const _layout = () => {
                 headerShown: false
             }}
         />
+          <Tabs.Screen
+            name="create"
+            options={{
+                title: "My Mood",
+                headerShown: false
+            }}
+        />
         <Tabs.Screen
             name="explore"
             options={{
@@ -23,13 +30,7 @@ const _layout = () => {
                 headerShown: false
             }}
         />
-        <Tabs.Screen
-            name="create"
-            options={{
-                title: "My Mood",
-                headerShown: false
-            }}
-        />
+      
         <Tabs.Screen
             name="profile"
             options={{
